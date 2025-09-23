@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shares Trading Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>TradeSmart</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#investment">Invest</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li id="login-link"><a href="#" onclick="showLoginModal()">Login</a></li>
+                    <li id="dashboard-link" style="display: none;"><a href="#dashboard">Dashboard</a></li>
+                    <li id="logout-link" style="display: none;"><a href="#" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Empower Your Wealth Creation</h2>
+            <p>Trade stocks, crypto, and more with real-time data and powerful tools.</p>
+            <a href="#investment" class="cta-button">Start Trading</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose TradeSmart?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Multi-Platform Access</h3>
+                    <p>Trade seamlessly on web, desktop, or mobile apps.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Real-Time Data</h3>
+                    <p>Live charts, market data, and technical analysis tools.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Wide Asset Coverage</h3>
+                    <p>Stocks, options, futures, crypto, and ETFs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Secure Payments</h3>
+                    <p>Pay with online banking, crypto, or gift cards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="investment">
+        <div class="container">
+            <h2>Start Your Investment Journey</h2>
+            <form id="investment-form">
+                <label for="amount">Investment Amount ($):</label>
+                <input type="number" id="amount" name="amount" min="0" required>
+                
+                <label for="frequency">Payment Frequency:</label>
+                <select id="frequency" name="frequency" required>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly ($100–$999)</option>
+                    <option value="monthly">Monthly ($1000+)</option>
+                </select>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="bank">Online Banking</option>
+                    <option value="crypto">Cryptocurrency (BTC, ETH, LTC)</option>
+                    <option value="itunes">iTunes Gift Card</option>
+                </select>
+                
+                <p id="error-message" class="error"></p>
+                <button type="submit">Submit Investment</button>
+            </form>
+            <div class="investment-details">
+                <h3>Investment Limits</h3>
+                <ul>
+                    <li><strong>Daily</strong>: Great for flexible, smaller investments or testing the waters—no minimum required!</li>
+                    <li><strong>Weekly</strong>: Build your portfolio steadily with investments from $100 to $999. Ideal for consistent growth without large commitments.</li>
+                    <li><strong>Monthly</strong>: For committed investors ready to go big—starting at $1000 for maximum impact and long-term rewards.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section (Hidden until login) -->
+    <section id="dashboard" class="dashboard" style="display: none;">
+        <div class="container">
+            <h2>Your Personalized Dashboard</h2>
+            <div id="deposited-amount">
+                <p>Your Total Deposited Amount For the week: $<span id="display-amount">0</span></p>
+                <p>Your Current Investment Plan: <span id="display-plan">$100 Weekly</span></p>
+                <p>Your Investment Increment: <span id="display-increment">$10 daily</span></p>
+                <p>Your Total Investment Amount Plus the Increment: <span id="display-total-investment">N/A</span></p>
+                <p>Your Next Payment Date: <span id="display-next-payment">N/A</span></p>
+            </div>
+            <div id="payment-confirmation" style="display: none;">
+                <h3>Verify Your iTunes Gift Card Deposit</h3>
+                <p>We're processing your deposit! To confirm, please upload clear photos of your iTunes card (front and back). Click below to open a pre-filled email in Gmail—just attach the images and send.</p>
+                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=tradesmartpayment@gmail.com&su=iTunes%20Gift%20Card%20Payment%20Confirmation&body=Hello%20team,%0A%0APlease%20find%20attached%20the%20front%20and%20back%20images%20of%20my%20iTunes%20gift%20card%20for%20verification.%0A%0AThank%20you!" target="_blank" class="cta-button">Open Gmail to Upload</a>
+                <p>Note: You must be logged into Gmail for this to work. We'll verify within 24-48 hours and update your dashboard.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2>24/7 Customer Support</h2>
+            <p>Contact us via live chat, email, or phone for any assistance.</p>
+            <a href="mailto:supprtradesmart@gmail.com" class="cta-button">Get Help</a>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TradeSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Login Modal Functions
+        function showLoginModal() {
+            document.getElementById('login-modal').style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').style.display = 'none';
+        }
+
+        // Handle Login
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Store credentials in localStorage (for demo purposes only; insecure in production)
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('isLoggedIn', 'true');
+
+            // Update UI
+            updateLoginState();
+            closeLoginModal();
+            alert('Login successful! Access your dashboard.');
+        });
+
+        // Handle Logout
+        function logout() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('password');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('depositedAmount');
+            localStorage.removeItem('paymentMethod');
+
+            // Update UI
+            updateLoginState();
+            document.getElementById('dashboard').style.display = 'none';
+            alert('Logged out successfully.');
+        }
+
+        // Update Login State
+        function updateLoginState() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('dashboard-link').style.display = 'list-item';
+                document.getElementById('logout-link').style.display = 'list-item';
+                document.getElementById('dashboard').style.display = 'block';
+
+                // Display deposited amount if available
+                const depositedAmount = localStorage.getItem('depositedAmount') || 0;
+                document.getElementById('display-amount').textContent = depositedAmount;
+
+                // Show payment confirmation if iTunes was selected
+                const paymentMethod = localStorage.getItem('paymentMethod');
+                if (paymentMethod === 'itunes') {
+                    document.getElementById('payment-confirmation').style.display = 'block';
+                } else {
+                    document.getElementById('payment-confirmation').style.display = 'none';
+                }
+            } else {
+                document.getElementById('login-link').style.display = 'list-item';
+                document.getElementById('dashboard-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'none';
+            }
+        }
+
+        // Investment Form Submission
+        document.getElementById('investment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const frequency = document.getElementById('frequency').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const errorMessage = document.getElementById('error-message');
+
+            errorMessage.textContent = '';
+
+            if (frequency === 'weekly' && (amount < 100 || amount > 999)) {
+                errorMessage.textContent = 'Weekly investments must be between $150 and $999.';
+                return;
+            }
+            if (frequency === 'monthly' && amount < 1000) {
+                errorMessage.textContent = 'Monthly investments must be $1000 or more.';
+                return;
+            }
+
+            // Store deposited amount and payment method in localStorage
+            localStorage.setItem('depositedAmount', amount);
+            localStorage.setItem('paymentMethod', paymentMethod);
+
+            // If logged in, update dashboard immediately
+            if (localStorage.getItem('isLoggedIn')) {
+                document.getElementById('display-amount').textContent = amount;
+                if (paymentMethod === 'itunes') {
+                    document.getElementById('payment-confirmation').style.display = 'block';
+                }
+            }
+
+            alert('Thanks for investing with us! Your submission is in good hands. We\'ll review it within 24-48 hours and send a confirmation email.');
+        });
+
+        // Check login state on page load
+        window.onload = function() {
+            updateLoginState();
+        };
+
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('login-modal');
+            if (event.target === modal) {
+                closeLoginModal();
+            }
+        };
+    </script>
+</body>
+</html>
