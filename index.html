@@ -1,280 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shares Trading Platform</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To My Cynthia 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9ec1 0%, #fec1cc 50%, #fff0f5 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-attachment: fixed;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 30px;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 182, 193, 0.6);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.2rem;
+      color: #e91e63;
+      margin-bottom: 20px;
+      text-shadow: 0 3px 10px rgba(233, 30, 99, 0.3);
+    }
+
+    h1 span {
+      color: #ff4081;
+    }
+
+    .question {
+      font-size: 1.55rem;
+      margin: 30px 0 50px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    button {
+      font-size: 1.4rem;
+      padding: 18px 60px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    #yesBtn {
+      background: linear-gradient(45deg, #ff4081, #f50057);
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.15);
+      box-shadow: 0 15px 35px rgba(245, 0, 87, 0.5);
+    }
+
+    #noBtn {
+      background: linear-gradient(45deg, #b0bec5, #90a4ae);
+      color: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    #noBtn:hover {
+      background: linear-gradient(45deg, #78909c, #607d8b);
+      transform: scale(1.08);
+    }
+
+    .love-message {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #ff9ec1, #ff4081);
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      font-size: 6.5rem;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 40px;
+      z-index: 100;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .love-message.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .heart-emoji {
+      font-size: 9rem;
+      animation: beat 1.4s infinite;
+      text-shadow: 0 0 30px rgba(255,255,255,0.8);
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.25); }
+    }
+
+    .small-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .small-heart {
+      position: absolute;
+      font-size: 1.8rem;
+      color: white;
+      opacity: 0.7;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(-150px) rotate(720deg); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3.4rem; }
+      .question { font-size: 1.35rem; }
+      button { padding: 16px 50px; font-size: 1.3rem; }
+      .love-message { font-size: 5rem; }
+      .heart-emoji { font-size: 7rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>TradeSmart</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#investment">Invest</a></li>
-                    <li><a href="#support">Support</a></li>
-                    <li id="login-link"><a href="#" onclick="showLoginModal()">Login</a></li>
-                    <li id="dashboard-link" style="display: none;"><a href="#dashboard">Dashboard</a></li>
-                    <li id="logout-link" style="display: none;"><a href="#" onclick="logout()">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h2>Empower Your Wealth Creation</h2>
-            <p>Trade stocks, crypto, and more with real-time data and powerful tools.</p>
-            <a href="#investment" class="cta-button">Start Trading</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Why Choose TradeSmart?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>Multi-Platform Access</h3>
-                    <p>Trade seamlessly on web, desktop, or mobile apps.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Real-Time Data</h3>
-                    <p>Live charts, market data, and technical analysis tools.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Wide Asset Coverage</h3>
-                    <p>Stocks, options, futures, crypto, and ETFs.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Secure Payments</h3>
-                    <p>Pay with online banking, crypto, or gift cards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Section -->
-    <section id="investment" class="investment">
-        <div class="container">
-            <h2>Start Your Investment Journey</h2>
-            <form id="investment-form">
-                <label for="amount">Investment Amount ($):</label>
-                <input type="number" id="amount" name="amount" min="0" required>
-                
-                <label for="frequency">Payment Frequency:</label>
-                <select id="frequency" name="frequency" required>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly ($100–$999)</option>
-                    <option value="monthly">Monthly ($1000+)</option>
-                </select>
-
-                <label for="payment-method">Payment Method:</label>
-                <select id="payment-method" name="payment-method" required>
-                    <option value="bank">Online Banking</option>
-                    <option value="crypto">Cryptocurrency (BTC, ETH, LTC)</option>
-                    <option value="itunes">iTunes Gift Card</option>
-                </select>
-                
-                <p id="error-message" class="error"></p>
-                <button type="submit">Submit Investment</button>
-            </form>
-            <div class="investment-details">
-                <h3>Investment Limits</h3>
-                <ul>
-                    <li><strong>Daily</strong>: Great for flexible, smaller investments or testing the waters—no minimum required!</li>
-                    <li><strong>Weekly</strong>: Build your portfolio steadily with investments from $100 to $999. Ideal for consistent growth without large commitments.</li>
-                    <li><strong>Monthly</strong>: For committed investors ready to go big—starting at $1000 for maximum impact and long-term rewards.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Section (Hidden until login) -->
-    <section id="dashboard" class="dashboard" style="display: none;">
-        <div class="container">
-            <h2>Your Personalized Dashboard</h2>
-            <div id="deposited-amount">
-                <p>Deposit Amount: $<span id="display-amount">$0 </span></p>
-                <p>Investment Increment: <span id="display-increment">$10 daily</span></p>
-                <p>Your Next Payment Date: <span id="display-next-payment"> </span></p>
-            </div>
-            <div id="payment-confirmation" style="display: none;">
-                <h3>Verify Your iTunes Gift Card Deposit</h3>
-                <p>We're processing your deposit! To confirm, please upload clear photos of your iTunes card (front and back). Click below to open a pre-filled email in Gmail—just attach the images and send.</p>
-                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=tradesmartpayment@gmail.com&su=iTunes%20Gift%20Card%20Payment%20Confirmation&body=Hello%20team,%0A%0APlease%20find%20attached%20the%20front%20and%20back%20images%20of%20my%20iTunes%20gift%20card%20for%20verification.%0A%0AThank%20you!" target="_blank" class="cta-button">Open Gmail to Upload</a>
-                <p>Note: You must be logged into Gmail for this to work. We'll verify within 24-48 hours and update your dashboard.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section id="support" class="support">
-        <div class="container">
-            <h2>24/7 Customer Support</h2>
-            <p>Contact us via live chat, email, or phone for any assistance.</p>
-            <a href="mailto:supprtradesmart@gmail.com" class="cta-button">Get Help</a>
-        </div>
-    </section>
-
-    <!-- Login Modal -->
-    <div id="login-modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Login</h2>
-            <form id="login-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                
-                <button type="submit">Login</button>
-            </form>
-        </div>
+  <div class="container" id="main">
+    <h1>To My <span>Cynthia</span> 💕</h1>
+    
+    <div class="question">
+      Will you be my Valentine?<br>
+      <small>(asking very nicely... 🥺💗)</small>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 TradeSmart. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="buttons">
+      <button id="yesBtn">Yes! 💖</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+  </div>
 
-    <script>
-        // Login Modal Functions
-        function showLoginModal() {
-            document.getElementById('login-modal').style.display = 'block';
-        }
+  <div class="love-message" id="loveMessage">
+    <div class="heart-emoji">💗</div>
+    <div>I LOVE YOU Cynthia!</div>
+    <div class="small-hearts" id="heartsContainer"></div>
+  </div>
 
-        function closeLoginModal() {
-            document.getElementById('login-modal').style.display = 'none';
-        }
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const main = document.getElementById('main');
+    const loveMessage = document.getElementById('loveMessage');
+    const heartsContainer = document.getElementById('heartsContainer');
 
-        // Handle Login
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    const noPhrases = [
+      "Nooo please? 🥺",
+      "Are you sure? 💔",
+      "Baby don't do this 😭",
+      "Pretty please? 🌸",
+      "My heart is breaking... 💔",
+      "One more chance? 🥰",
+      "You can't say no to this face 😽",
+      "I baked cookies... 🍪",
+      "Say yes or I'll cry forever 😢",
+      "Cynthia pls 🥹💕",
+      "Wrong button cutie~ 😘",
+      "Try again hehe~ ✨",
+      "Nope button is broken sorryyy 💗"
+    ];
 
-            // Store credentials in localStorage (for demo purposes only; insecure in production)
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-            localStorage.setItem('isLoggedIn', 'true');
+    let noClickCount = 0;
 
-            // Update UI
-            updateLoginState();
-            closeLoginModal();
-            alert('Login successful! Access your dashboard.');
-        });
+    noBtn.addEventListener('mouseover', (e) => {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 120);
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
 
-        // Handle Logout
-        function logout() {
-            localStorage.removeItem('username');
-            localStorage.removeItem('password');
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('depositedAmount');
-            localStorage.removeItem('paymentMethod');
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      const phrase = noPhrases[Math.min(noClickCount - 1, noPhrases.length - 1)];
+      noBtn.textContent = phrase;
+      
+      // Make yes button bigger each time they click no
+      yesBtn.style.transform = `scale(${1 + noClickCount * 0.15})`;
+      yesBtn.style.padding = `${18 + noClickCount * 6}px ${60 + noClickCount * 12}px`;
+    });
 
-            // Update UI
-            updateLoginState();
-            document.getElementById('dashboard').style.display = 'none';
-            alert('Logged out successfully.');
-        }
+    yesBtn.addEventListener('click', () => {
+      main.style.display = 'none';
+      loveMessage.classList.add('show');
+      createHearts(30);
+    });
 
-        // Update Login State
-        function updateLoginState() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn) {
-                document.getElementById('login-link').style.display = 'none';
-                document.getElementById('dashboard-link').style.display = 'list-item';
-                document.getElementById('logout-link').style.display = 'list-item';
-                document.getElementById('dashboard').style.display = 'block';
+    function createHearts(count) {
+      for(let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('small-heart');
+        heart.innerHTML = ['💖','💗','💕','✨','🌸','💞'][Math.floor(Math.random()*6)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        heartsContainer.appendChild(heart);
+        
+        setTimeout(() => heart.remove(), 8000);
+      }
+    }
 
-                // Display deposited amount if available
-                const depositedAmount = localStorage.getItem('depositedAmount') || 0;
-                document.getElementById('display-amount').textContent = depositedAmount;
+    // Optional: little hearts floating occasionally
+    setInterval(() => createHearts(5), 4000);
+  </script>
 
-                // Show payment confirmation if iTunes was selected
-                const paymentMethod = localStorage.getItem('paymentMethod');
-                if (paymentMethod === 'itunes') {
-                    document.getElementById('payment-confirmation').style.display = 'block';
-                } else {
-                    document.getElementById('payment-confirmation').style.display = 'none';
-                }
-            } else {
-                document.getElementById('login-link').style.display = 'list-item';
-                document.getElementById('dashboard-link').style.display = 'none';
-                document.getElementById('logout-link').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'none';
-            }
-        }
-
-        // Investment Form Submission
-        document.getElementById('investment-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const amount = parseFloat(document.getElementById('amount').value);
-            const frequency = document.getElementById('frequency').value;
-            const paymentMethod = document.getElementById('payment-method').value;
-            const errorMessage = document.getElementById('error-message');
-
-            errorMessage.textContent = '';
-
-            if (frequency === 'weekly' && (amount < 100 || amount > 999)) {
-                errorMessage.textContent = 'Weekly investments must be between $150 and $999.';
-                return;
-            }
-            if (frequency === 'monthly' && amount < 1000) {
-                errorMessage.textContent = 'Monthly investments must be $1000 or more.';
-                return;
-            }
-
-            // Store deposited amount and payment method in localStorage
-            localStorage.setItem('depositedAmount', amount);
-            localStorage.setItem('paymentMethod', paymentMethod);
-
-            // If logged in, update dashboard immediately
-            if (localStorage.getItem('isLoggedIn')) {
-                document.getElementById('display-amount').textContent = amount;
-                if (paymentMethod === 'itunes') {
-                    document.getElementById('payment-confirmation').style.display = 'block';
-                }
-            }
-
-            alert('Thanks for investing with us! Your submission is in good hands. We\'ll review it within 24-48 hours and send a confirmation email.');
-        });
-
-        // Check login state on page load
-        window.onload = function() {
-            updateLoginState();
-        };
-
-        // Close modal if clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('login-modal');
-            if (event.target === modal) {
-                closeLoginModal();
-            }
-        };
-    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
